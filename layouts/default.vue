@@ -4,11 +4,11 @@
 		<NuxtLink
 			to="/_tailwind/"
 			target="_blank"
-			class="rounded px-5 py-1 absolute right-5 top-5 bg-sky-600 hover:bg-sky-700 text-white"
+			class="rounded px-5 py-1 absolute right-5 top-5 bg-sky-600 hover:bg-sky-700 text-white opacity-5 hover:opacity-50 transition"
 		>
 			Tailwind viewer
 		</NuxtLink>
-		<main class="flex grow items-center mx-auto">
+		<main class="flex flex-col justify-center grow items-center mx-auto">
 			<slot />
 		</main>
 		<AppFooter />
