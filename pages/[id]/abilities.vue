@@ -1,8 +1,8 @@
 <template>
 	<div class="mt-3">
 		<p>Abilities:</p>
-		<ul>
-			<li v-for="(ability, index) in pokemon.abilities" :key="index">- {{ ability.ability.name }}</li>
+		<ul class="list-disc list-inside">
+			<li v-for="(ability, index) in pokemon.abilities" :key="index">{{ ability.ability.name }}</li>
 		</ul>
 	</div>
 </template>

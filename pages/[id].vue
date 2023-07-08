@@ -6,7 +6,7 @@
 			<p class="text-2xl">{{ pokemon.name }}</p>
 			<img :src="pokemon.sprites.front_default" alt="image" />
 
-			<NuxtLink :to="`/${params.id}/abilities`" class="pr-2 underline">Abilities</NuxtLink>
+			<NuxtLink :to="`/${params.id}/abilities`" class="mr-3 underline">Abilities</NuxtLink>
 			<NuxtLink :to="`/${params.id}/stats`" class="underline">Stats</NuxtLink>
 
 			<NuxtPage :pokemon="pokemon" />
@@ -18,5 +18,9 @@
 	import { Pokemon } from '@/types';
 
 	const { params } = useRoute();
-	const { data: pokemon, pending } = await useFetch<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${params.id}`);
+	const { data: pokemon, pending, error } = await useFetch<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${params.id}`);
+
+	if (error.value) {
+		showError({ statusCode: error.value.statusCode });
+	}
 </script>
